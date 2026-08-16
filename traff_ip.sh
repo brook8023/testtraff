@@ -13,3 +13,5 @@ do
     iptables -t nat -I POSTROUTING -s 192.168.$subnum.0/24 -j SNAT --to-source 10.1.0.$iface
     docker run -d --network my_network_$i --name tm_$i traffmonetizer/cli_v2 start accept --token $2 --device-name ${hostn}_$i
 done
+
+docker run -d --restart=always --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --include-stopped --include-restarting --revive-stopped --interval 43200
