@@ -14,4 +14,4 @@ do
     docker run -d --network my_network_$i --name tm_$i traffmonetizer/cli_v2 start accept --token $2 --device-name ${hostn}_$i
 done
 
-docker run -d --restart=always --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup --include-stopped --include-restarting --revive-stopped --interval 43200
+docker run -d --restart=always --name watchtower -v /var/run/docker.sock:/var/run/docker.sock nickfedor/watchtower --cleanup --interval 43200
