@@ -1,0 +1,94 @@
+{
+    "inbounds": [
+        {
+            "port": 8000,
+            "listen": "0.0.0.0",
+            "protocol": "socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "brook",
+                        "pass": "brook"
+                    }
+                ],
+                "udp": true,
+                "ip": "127.0.0.1",
+                "userLevel": 0
+            },
+            "tag": "8000-in"
+        },
+        {
+            "port": 8001,
+            "listen": "0.0.0.0",
+            "protocol": "socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "brook",
+                        "pass": "brook"
+                    }
+                ],
+                "udp": true,
+                "ip": "127.0.0.1",
+                "userLevel": 0
+            },
+            "tag": "8001-in"
+        },
+        {
+            "port": 8002,
+            "listen": "0.0.0.0",
+            "protocol": "socks",
+            "settings": {
+                "auth": "password",
+                "accounts": [
+                    {
+                        "user": "brook",
+                        "pass": "brook"
+                    }
+                ],
+                "udp": true,
+                "ip": "127.0.0.1",
+                "userLevel": 0
+            },
+            "tag": "8002-in"
+        }
+    ],
+    "outbounds": [
+        {
+            "sendThrough": "10.1.0.4",
+            "protocol": "freedom",
+            "tag": "8000-out"
+        },
+        {
+            "sendThrough": "10.1.0.5",
+            "protocol": "freedom",
+            "tag": "8001-out"
+        },
+        {
+            "sendThrough": "10.1.0.6",
+            "protocol": "freedom",
+            "tag": "8002-out"
+        }
+    ],
+    "routing": {
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": "8000-in",
+                "outboundTag": "8000-out"
+            },
+            {
+                "type": "field",
+                "inboundTag": "8001-in",
+                "outboundTag": "8001-out"
+            },
+            {
+                "type": "field",
+                "inboundTag": "8002-in",
+                "outboundTag": "8002-out"
+            }
+        ]
+    }
+}
